@@ -2,7 +2,7 @@
 
 ## Content
 - [Historic :clock7:](#historic-clock7)
-- [Makefile](#./make_file)
+- [Makefile](make_file)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
