@@ -3,7 +3,7 @@
 ## Content
 - [Historic :clock7:](#historic-clock7)
 - [Introduction :traffic\_light:](#introduction-traffic_light)
-- [Topics](#topics-newspaper)
+- [Topics :newspaper:](#topics-newspaper)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
