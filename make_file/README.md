@@ -1,15 +1,14 @@
-# template
+# makefile
 
 ## Content
-- [Historic :clock7:](#historic-clock7)
-- [Makefile](#./make_file)
+- [Historic](#historic-clock7)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
-[Go to content](#content)
 |Date _YYYY-MM-DD_|Description|
 |:-|:-|
-|20xx-xx-xx|Init|
+|2022-03-04|Init|
 
 ## Sources :link:
 [Go to content](#content)
+- https://www.gnu.org/software/make/manual/make.pdf
