@@ -6,8 +6,8 @@ A((start)) --> B[read this file]
 B --> C{do you like it ?}
 C -.-x |No| D(Sorry for you)
 C --> |Yes| E[Give me five]
-E --> F[Go back to code]
-D & F --> G((end))
+D & E --> F[Go back to code]
+F --> G((end))
 ```
 
 ## Content
@@ -87,18 +87,24 @@ Below are the different shapes.
 _:pencil2: Example:_
 ```mermaid
 flowchart LR
-A[rectangle]
-B(rounded rectangle)
-C{diamond}
-D([stadium])
-E{{hexagon}}
-F[/parallelogram/]
-G[\alternate parallelogram\]
-H>asymetric]
+subgraph grp3
 I[/trapezoid\]
 J[\alternate trapezoid/]
 K[[subroutine]]
 L[(database)]
+end
+subgraph grp2
+E{{hexagon}}
+F[/parallelogram/]
+G[\alternate parallelogram\]
+H>asymetric]
+end
+subgraph grp1
+A[rectangle]
+B(rounded rectangle)
+C{diamond}
+D([stadium])
+end
 ```
 
 ## Sources :link:
