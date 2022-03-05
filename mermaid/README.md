@@ -18,6 +18,7 @@ D & F --> G((end))
 
 ## Historic :clock7:
 [Go to content](#content)
+
 |version||Date _YYYY-MM-DD_|Description|
 |:-||:-|:-|
 |v0.0|20xx-03-04|Init|
@@ -35,15 +36,14 @@ In case of usage in ".md" file from GitHub, you simply must define a code area a
 - Define the content according to the graphical type defined.
 
 _:pencil2: Example:_
-```
+
 \`\`\`mermaid
-flowchart TB
+flowchart LR
 A --> B
 \`\`\`
-```
-*result :arrow\_heading\_down::*
+
 ```mermaid
-flowchart TB
+flowchart LR
 A --> B
 ```
 Below are the different graphical type.
@@ -87,13 +87,22 @@ Below are the different shapes.
 _:pencil2: Example:_
 ```mermaid
 flowchart TB
-A[rectangle] --> B(rounded rectangle) & C{diamond} & D([stadium])
-A --> E{{hexagon}} & F[/parallelogram/] & G[\alternate parallelogram\]
-A --> H>asymetric] & I[/trapezoid\] & J[\alternate trapezoid/]
-A --> K[[subroutine]] & L[(database)]
+A[rectangle]
+B(rounded rectangle)
+C{diamond}
+D([stadium])
+E{{hexagon}}
+F[/parallelogram/]
+G[\alternate parallelogram\]
+H>asymetric]
+I[/trapezoid\]
+J[\alternate trapezoid/]
+K[[subroutine]]
+L[(database)]
 ```
 
 ## Sources :link:
 [Go to content](#content)
+
 - :book: "The Official Guide to Mermaid.js: Create complex diagrams and beautiful flowcharts easily using text and code" by Knut Sveidqvist and Ashish Jain
 - :globe\_with\_meridians: https://mermaid.live/
