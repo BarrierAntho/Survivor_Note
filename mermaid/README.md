@@ -19,8 +19,8 @@ D & F --> G((end))
 ## Historic :clock7:
 [Go to content](#content)
 
-|version||Date _YYYY-MM-DD_|Description|
-|:-||:-|:-|
+|version|Date _YYYY-MM-DD_|Description|
+|:-|:-|:-|
 |v0.0|20xx-03-04|Init|
 
 ## Overview :mag:
@@ -37,10 +37,10 @@ In case of usage in ".md" file from GitHub, you simply must define a code area a
 
 _:pencil2: Example:_
 
-\`\`\`mermaid
-flowchart LR
-A --> B
-\`\`\`
+\`\`\`mermaid  
+flowchart LR  
+A --> B  
+\`\`\`  
 
 ```mermaid
 flowchart LR
@@ -86,7 +86,7 @@ Below are the different shapes.
 
 _:pencil2: Example:_
 ```mermaid
-flowchart TB
+flowchart LR
 A[rectangle]
 B(rounded rectangle)
 C{diamond}
