@@ -1,4 +1,14 @@
-# template
+# mermaid
+
+```mermaid
+flowchart LR
+A((start)) --> B[read this file]
+B --> C{do you like it ?}
+C -.-x |No| D(Sorry for you)
+C --> |Yes| E[Give me five]
+E --> F[Go back to code]
+D & F --> G((end))
+```
 
 ## Content
 - [Historic :clock7:](#historic-clock7)
@@ -8,12 +18,35 @@
 
 ## Historic :clock7:
 [Go to content](#content)
-|Date _YYYY-MM-DD_|Description|
-|:-|:-|
-|20xx-xx-xx|Init|
+|version||Date _YYYY-MM-DD_|Description|
+|:-||:-|:-|
+|v0.0|20xx-03-04|Init|
 
 ## Overview :mag:
 [Go to content](#content)
+
+The purpose of mermaid is to represent a graphic by writting text code in a text file as ".md | .html".
+The easiest way to represent any idea/concept/flow with a lot of flexibility.
+
+
+In case of usage in ".md" file from GitHub, you simply must define a code area as following:
+- Write "mermaid" at the end of the first line of the code area.
+- Define the graphical type on the second line and its direction.
+- Define the content according to the graphical type defined.
+
+_:pencil2: Example:_
+```
+\`\`\`mermaid
+flowchart TB
+A --> B
+\`\`\`
+```
+*result :arrow\_heading\_down::*
+```mermaid
+flowchart TB
+A --> B
+```
+Below are the different graphical type.
 |Type|Description|
 |:-|:-|
 |Flowcharts||
@@ -25,12 +58,14 @@
 ## Flowcharts
 [Go to content](#content)
 
-### Rules
-Call: `Type Direction`  
+### Settings
 - Type: `flowchart`  
 - Direction: `TB, BT, RL, LR`  
 
+> :memo: T=top | B=bottom | L=left | R=right
+
 ### Shapes
+Below are the different shapes.
 |Code|Description|
 |:-:|:-|
 |[x]|Default rectangle|
@@ -49,7 +84,7 @@ Call: `Type Direction`
 
 > :memo: x represents description of the shapes
 
-### Examples
+_:pencil2: Example:_
 ```mermaid
 flowchart TB
 A[rectangle] --> B(rounded rectangle) & C{diamond} & D([stadium])
@@ -60,4 +95,5 @@ A --> K[[subroutine]] & L[(database)]
 
 ## Sources :link:
 [Go to content](#content)
-- https://mermaid.live/
+- :book: "The Official Guide to Mermaid.js: Create complex diagrams and beautiful flowcharts easily using text and code" by Knut Sveidqvist and Ashish Jain
+- :globe\_with\_meridians: https://mermaid.live/
