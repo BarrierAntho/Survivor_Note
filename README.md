@@ -10,6 +10,7 @@
 [Go to content](#content)
 |Date _YYYY-MM-DD_|Description|
 |:-|:-|
+|2022-05-03|Add "git" and template\_commit|
 |2022-03-04|Init|
 
 ## Introduction :traffic\_light:
@@ -21,6 +22,7 @@ If you get any issue or if you have any question, please send me an email :mailb
 ## Topics :newspaper:
 |Type|Topic|Description|
 |:-|:-|:-|
+|Documentation|[Git](git)||
 |Documentation|[Makefile](make_file)||
 |Documentation|[Mermaid](mermaid)||
 |Documentation|[Pictograms](pictograms)||
