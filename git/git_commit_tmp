@@ -1,0 +1,78 @@
+# RULES - START
+# - The commit must include:
+#	TITLE
+#	BODY
+#	TODO
+#	
+# - TITLE is mandatory and must have the following format:
+#	TYPE - TITLE
+# 	- TYPE can be:
+#		INIT:	init a repository/directory/file
+#		FIX:	fix issue/bug
+#		RDME:	update README file
+#		MAKE:	update Makefile
+#		NORM:	norme files
+#		UPDT:	update files
+#		RM:	remove files
+#	 - TITLE must be:
+#		starting with upper case and finishing without period
+#		short as much as possible
+#		explict as much as possible
+#
+# EXAMPLE:
+#	INIT - libft
+#	INIT - ft_atoll.c
+#	MAKE - new function
+#	UPDT - new function in headers ft_libft.h
+#	RDME - update chapter introduction
+#	NORM - norme chartype files
+#
+# - BODY must be:
+#	Starting by the word "BODY:"
+#	Short as much as possible
+#	Explict as much as possible
+#	Each section starts with upper case and finishing without period
+#	Each section must be separated by a double carriage return
+#
+# - TODO is only defined to alert something not finished on specific topics and must be:
+#	Starting by the word "TODO:"
+#	Short as much as possible
+#	Explict as much as possible
+#	Each section starts with upper case and finishing without period
+#	Each section must be separated by a carriage return
+#	If nothing to write then write "N/A"
+#
+# FULL EXAMPLE 1:
+#	INIT - libft
+#
+#	BODY:
+#	Init of libft project
+#
+#	TODO:
+#	Norme files
+#	Add ft_split.c
+#
+# FULL EXAMPLE 2:
+#	UPDT - ft_split
+#
+#	BODY:
+#	Add free functions in case of malloc issue
+#
+#	TODO:
+#	N/A
+# RULES - END
+##################################################
+#
+# COMMIT TEMPLATE (UNCOMMENT TITLE LINE)
+# INIT - 
+# FIX - 
+# MAKE - 
+# UPDT - 
+# RDME - 
+# NORM - 
+
+BODY:
+N/A
+
+TODO:
+N/A
