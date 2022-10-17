@@ -14,9 +14,16 @@
 `$<` replaced by name of first prerequisite
 `$^` replaced by names of all prerequistes
 
+## Flags
+There is specific flags to compile
+CFLAGS for c
+CXXFLAGS for c++
+etc.
+See [the link](https://earthly.dev/blog/make-flags/)
 
 ## Sources :link:
 [Go to content](#content)
 - https://www.gnu.org/software/make/manual/make.pdf
 - http://perso.univ-lyon1.fr/jean-claude.iehl/Public/educ/Makefile.html
 - https://gcc.gnu.org/onlinedocs/gcc-3.4.2/gcc/Preprocessor-Options.html#Preprocessor-Options
+- https://earthly.dev/blog/make-flags/
