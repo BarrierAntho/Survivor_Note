@@ -33,23 +33,23 @@ Paragraph is defined
 
 ### Text style
 It is possible to define text style by using specific tag:
-- `_` for italic style
-- `*` for italic style
-- `-` for italic style
-- `__` for 
+- `\_` for italic style
+- `\*` for italic style
+- `\_\_` for bold style
+- `\*\*` for bold style
 
 > _:pencil2: Example:_
 > ``` 
 > _text1_
 > *text2*
-> _*text3*_
-> *_text4_*
+> __text3__
+> **text4**
 > ```
 > _:camera: Result:_
-> _text1_
-> *text2*
-> _*text3*_
-> *_text4_*
+> _text1_<br>
+> *text2*<br>
+> __text3__<br>
+> **text4**<br>
 
 ### List
 
@@ -64,8 +64,8 @@ It is possible to define text style by using specific tag:
 > * obj 12
 > 
 > List 3:
-> 1- obj 21
-> 2- obj 22 
+> 1. obj 21
+> 2. obj 22 
 > ```
 > _:camera: Result:_
 > List 1:
@@ -77,8 +77,8 @@ It is possible to define text style by using specific tag:
 > * obj 12 
 > 
 > List 3:
-> 1- obj21
-> 2- obj22
+> 1. obj21
+> 2. obj22
 
 ### Table
 
