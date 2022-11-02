@@ -29,7 +29,30 @@ It is better to separate the tag and the title withaspace character.
 > ### My title level 2
 
 ### Paragraph
-Paragraph is defined 
+Paragraph is one or several lines while break line is not present or while there is no blank line after it.
+
+> _:pencil2: Example:_<br>
+> ```
+> This is a paragraph
+> with several
+> following lines.
+>
+> This is a paragraph with break line<br>
+> and with several<br>
+> following lines.
+>
+> Or by adding blank line between two lines.
+> ```
+> _:camera: Result:<br>
+> This is a paragraph
+> with several
+> following lines.
+>
+> This is a paragraph with break line<br>
+> and with several<br>
+> following lines.
+> 
+> Or by adding blank line between two lines.
 
 ### Text style
 It is possible to define text style by using specific tag:
