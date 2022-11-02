@@ -14,7 +14,7 @@
 ### Title
 Title can be set by using “#” tag and its level depends of total number tag.<br>
 Each level has its own text font and size.<br>
-It is better to separate the tag and the title withaspace character.
+It is better to separate the tag and the title with a space character.
 
 > _:pencil2: Example:_<br>
 > ```
@@ -43,7 +43,7 @@ Paragraph is one or several lines while break line is not present or while there
 >
 > Or by adding blank line between two lines.
 > ```
-> _:camera: Result:<br>
+> _:camera: Result:_<br>
 > This is a paragraph
 > with several
 > following lines.
@@ -109,11 +109,11 @@ It is possible to define text style by using specific tag:
 
 ### Hyperlink
 
-—-
+---
 
 ## Emoji
 
-—-
+---
 
 ## HTML style
 
