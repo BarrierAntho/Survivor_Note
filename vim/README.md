@@ -24,6 +24,11 @@ Increase width of the active selection: `CTRL + w` followed by the letter `>` or
 Decrease width of the active selection: `CTRL + w` followed by the letter `<` or `x<` where x represents a digit
 Close the active selection: `CTRL + w` followed by the letter `q`  
 
+## vimrc
+Interpreet .tpp file as .cpp file
+```au BufNewFile,BufRead *.tpp set filetype=cpp```
+
+
 ## Sources :link:
 [Go to content](#content)
 
