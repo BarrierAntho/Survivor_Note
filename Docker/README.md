@@ -26,7 +26,7 @@ Docker containers that run on Docker Engine:
 
 It leveraged existing computing concepts around containers and specifically in the Linux world, primitives known as cgroups and namespaces. Docker’s technology is unique because it focuses on the requirements of developers and systems operators to separate application dependencies from infrastructure.<br>
 
-> cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.<br>
+> cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
 > Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same namespace for a set of resources and processes, but those namespaces refer to distinct resources. Resources may exist in multiple spaces. Examples of such resources are process IDs, host-names, user IDs, file names, and some names associated with network access, and Inter-process communication.<br>
 
 ## Comparison Containers vs VirtualMachine
@@ -75,8 +75,64 @@ Verify that the Docker Engine installation is successful by running the hello-wo
 sudo docker run hello-world
 ```
 
-## Commands
+## Cheat Section
+Create and start a container
+```
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+***Option :wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|--detach, -d|Run container in background and print container ID|
+|--name|Assign a name to the container|
+|--publish , -p|Publish a container's port(s) to the host|
 
+Create an inactive container
+```
+docker create <docker name>
+```
+
+Stop the container
+```
+docker stop <UUID/docker name>
+```
+
+Kill the container
+```
+docker kill
+```
+
+List all containers
+```
+docker ps [OPTIONS]
+```
+***Option :wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|--all, -a|Show all containers (default shows just running)|
+
+Destroy a container
+```
+docker rm <UUID/docker name>
+```
+> :pushpin: Container must be stopped before to be destroyed
+
+Connect to an active container
+```
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+```
+***Option :wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|--tty, -t|Allocate a pseudo-TTY|
+|--interactive, -i|Keep STDIN open even if not attached|
+
+## Lexic
+|Word|Description|
+|-|-|
+|CaaS|Container as a Service|
+|IaaS|Infrastructure as a Service|
+|UUID|Universally unique identifier|
 
 ## Sources :link:
 [Go to content](#content)
@@ -84,7 +140,12 @@ sudo docker run hello-world
 ### Docker
 - https://www.docker.com/resources/what-container/
 - https://docs.docker.com/engine/install/debian/
+- https://docs.docker.com/engine/reference/commandline/exec/
+- https://docs.docker.com/engine/reference/commandline/ps/
+- https://docs.docker.com/engine/reference/commandline/run/
 
 ### Miscellaneous
 - https://en.wikipedia.org/wiki/Cgroups
 - https://en.wikipedia.org/wiki/Linux\_namespaces
+- https://en.wikipedia.org/wiki/Daemon\_\(computing\)
+- https://fr.wikipedia.org/wiki/Universally\_unique\_identifier
