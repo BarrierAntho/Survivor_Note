@@ -28,12 +28,12 @@ Containers and virtual machines have similar resource isolation and allocation b
 ### Containers
 Containers are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.<br>
 
-![Docker\_Comparison\_Containers\_VM\_001](resources/images/Docker_Comparison_Containers-VM_001.png \"Docker - Comparison Containers vs VM 001")
+![Docker\_Comparison\_Containers\_VM\_001](resources/images/Docker_Comparison_Containers-VM_001.png "Docker - Comparison Containers vs VM 001")
 
 ### VirtualMachine
 Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, necessary binaries and libraries – taking up tens of GBs. VMs can also be slow to boot.<br>
 
-![Docker\_Comparison\_Containers\_VM\_002](resources/images/Docker_Comparison_Containers-VM_002.png \"Docker - Comparison Containers vs VM 002")
+![Docker\_Comparison\_Containers\_VM\_002](resources/images/Docker_Comparison_Containers-VM_002.png "Docker - Comparison Containers vs VM 002")
 
 ## Commands
 
