@@ -18,7 +18,7 @@ Docker containers that run on Docker Engine:
 - ***Lightweight***: Containers share the machine’s OS system kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server and licensing costs.
 - ***Secure***: Applications are safer in containers and Docker provides the strongest default isolation capabilities in the industry.
 
-[![General Docker Concept](resources/pictures/Docker_General.png)](https://www.docker.com/wp-content/themes/divi-child/assets/images/product/product-body-background.svg "Global Docker Concept")
+[![General Docker Concept](resources/images/Docker_General.png)](https://www.docker.com/wp-content/themes/divi-child/assets/images/product/product-body-background.svgd)
 
 It leveraged existing computing concepts around containers and specifically in the Linux world, primitives known as cgroups and namespaces. Docker’s technology is unique because it focuses on the requirements of developers and systems operators to separate application dependencies from infrastructure.<br>
 
