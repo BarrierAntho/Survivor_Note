@@ -18,9 +18,22 @@ Docker containers that run on Docker Engine:
 - ***Lightweight***: Containers share the machine’s OS system kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server and licensing costs.
 - ***Secure***: Applications are safer in containers and Docker provides the strongest default isolation capabilities in the industry.
 
-[![General Docker Concept](resources/images/Docker_General.png)](https://www.docker.com/wp-content/themes/divi-child/assets/images/product/product-body-background.svgd)
+[![Docker\_General\_Concept](resources/images/Docker_General.png \"Docker - General Concept")](https://www.docker.com/wp-content/themes/divi-child/assets/images/product/product-body-background.svgd)
 
 It leveraged existing computing concepts around containers and specifically in the Linux world, primitives known as cgroups and namespaces. Docker’s technology is unique because it focuses on the requirements of developers and systems operators to separate application dependencies from infrastructure.<br>
+
+## Comparison Containers vs VirtualMachine
+Containers and virtual machines have similar resource isolation and allocation benefits, but function differently because containers virtualize the operating system instead of hardware. Containers are more portable and efficient.
+
+### Containers
+Containers are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.<br>
+
+![Docker\_Comparison\_Containers\_VM\_001](resources/images/Docker_Comparison_Containers-VM_001.png \"Docker - Comparison Containers vs VM 001")
+
+### VirtualMachine
+Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, necessary binaries and libraries – taking up tens of GBs. VMs can also be slow to boot.<br>
+
+![Docker\_Comparison\_Containers\_VM\_002](resources/images/Docker_Comparison_Containers-VM_002.png \"Docker - Comparison Containers vs VM 002")
 
 ## Commands
 
