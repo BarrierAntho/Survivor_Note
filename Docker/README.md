@@ -80,40 +80,41 @@ Create and start a container
 ```
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
-***Option :wrench:***
+***Options :wrench:***
 |Name/Shorthand|Description|
 |-|-|
 |--detach, -d|Run container in background and print container ID|
 |--name|Assign a name to the container|
 |--publish , -p|Publish a container's port(s) to the host|
+|--volume , -v|Bind mount a volume|
 
 Create an inactive container
 ```
-docker create <docker name>
+docker create [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
 
 Stop the container
 ```
-docker stop <UUID/docker name>
+docker stop [OPTIONS] CONTAINER [CONTAINER...]
 ```
 
 Kill the container
 ```
-docker kill
+docker kill [OPTIONS] CONTAINER [CONTAINER...]
 ```
 
 List all containers
 ```
 docker ps [OPTIONS]
 ```
-***Option :wrench:***
+***Options :wrench:***
 |Name/Shorthand|Description|
 |-|-|
 |--all, -a|Show all containers (default shows just running)|
 
 Destroy a container
 ```
-docker rm <UUID/docker name>
+docker rm [OPTIONS] CONTAINER [CONTAINER...]
 ```
 > :pushpin: Container must be stopped before to be destroyed
 
@@ -121,14 +122,42 @@ Connect to an active container
 ```
 docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
 ```
-***Option :wrench:***
+***Options :wrench:***
 |Name/Shorthand|Description|
 |-|-|
 |--tty, -t|Allocate a pseudo-TTY|
 |--interactive, -i|Keep STDIN open even if not attached|
 
+Create a volume
+```
+docker run [OPTIONS] -v <Container's directory> IMAGE 
+```
+
+Bind-mounting volume
+```
+docker run [OPTIONS] -v <Host directory>/<Container's directory> IMAGE 
+```
+
+Inspect an active container
+```
+docker inspect [OPTIONS] NAME|ID [NAME|ID...]
+```
+
+List all images
+```
+docker images [OPTIONS] [REPOSITORY[:TAG]]
+```
+|Name/Shorthand|Description|
+|-|-|
+|--all, -a|Show all containers (default shows just running)|
+
+Destroy images
+```
+docker rmi [OPTIONS] IMAGE [IMAGE...]
+```
+
 ## Lexic
-|Word|Description|
+|Name|Description|
 |-|-|
 |CaaS|Container as a Service|
 |IaaS|Infrastructure as a Service|
@@ -140,9 +169,16 @@ docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
 ### Docker
 - https://www.docker.com/resources/what-container/
 - https://docs.docker.com/engine/install/debian/
+- https://docs.docker.com/engine/reference/commandline/create/
 - https://docs.docker.com/engine/reference/commandline/exec/
+- https://docs.docker.com/engine/reference/commandline/images/
+- https://docs.docker.com/engine/reference/commandline/inspect/
+- https://docs.docker.com/engine/reference/commandline/kill/
 - https://docs.docker.com/engine/reference/commandline/ps/
+- https://docs.docker.com/engine/reference/commandline/rm/
+- https://docs.docker.com/engine/reference/commandline/rmi/
 - https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/stop/
 
 ### Miscellaneous
 - https://en.wikipedia.org/wiki/Cgroups
