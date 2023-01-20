@@ -27,6 +27,7 @@ Docker containers that run on Docker Engine:
 It leveraged existing computing concepts around containers and specifically in the Linux world, primitives known as cgroups and namespaces. Docker’s technology is unique because it focuses on the requirements of developers and systems operators to separate application dependencies from infrastructure.<br>
 
 > cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.<br>
+> Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same namespace for a set of resources and processes, but those namespaces refer to distinct resources. Resources may exist in multiple spaces. Examples of such resources are process IDs, host-names, user IDs, file names, and some names associated with network access, and Inter-process communication.<br>
 
 ## Comparison Containers vs VirtualMachine
 [Go to content](#content)
@@ -34,15 +35,11 @@ It leveraged existing computing concepts around containers and specifically in t
 Containers and virtual machines have similar resource isolation and allocation benefits, but function differently because containers virtualize the operating system instead of hardware. Containers are more portable and efficient.<br>
 
 ### Containers
-[Go to content](#content)
-
 Containers are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.<br>
 
 <img src="resources/images/Docker_Comparison_Containers-VM_001.png" title="Docker - Comparison Containers vs VM 001" width="400" height="400" />
 
 ### VirtualMachine
-[Go to content](#content)
-
 Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, necessary binaries and libraries – taking up tens of GBs. VMs can also be slow to boot.<br>
 
 <img src="resources/images/Docker_Comparison_Containers-VM_002.png" title="Docker - Comparison Containers vs VM 002" width="400" height="400" />
@@ -50,6 +47,33 @@ Virtual machines (VMs) are an abstraction of physical hardware turning one serve
 ## Installation On Debian
 [Go to content](#content)
 
+### Uninstall Docker Engine
+Older versions of Docker went by the names of docker, docker.io, or docker-engine. Uninstall any such older versions before attempting to install a new version.
+```
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+Uninstall the Docker Engine, CLI, containerd, and Docker Compose packages.
+```
+sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras
+```
+Images, containers, volumes, or custom configuration files on your host aren’t automatically removed. To delete all images, containers, and volumes.
+```
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+```
+Update the apt package index
+```
+sudo apt-get update
+```
+To install the latest version, run
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+Verify that the Docker Engine installation is successful by running the hello-world image
+```
+sudo docker run hello-world
+```
 
 ## Commands
 
@@ -59,7 +83,8 @@ Virtual machines (VMs) are an abstraction of physical hardware turning one serve
 
 ### Docker
 - https://www.docker.com/resources/what-container/
+- https://docs.docker.com/engine/install/debian/
 
 ### Miscellaneous
 - https://en.wikipedia.org/wiki/Cgroups
-
+- https://en.wikipedia.org/wiki/Linux\_namespaces
