@@ -75,6 +75,24 @@ Verify that the Docker Engine installation is successful by running the hello-wo
 sudo docker run hello-world
 ```
 
+## Dockerfile
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.<br>
+
+### Comment
+Docker treats lines that begin with # as a comment, unless the line is a valid parser directive. A # marker anywhere else in a line is treated as an argument.<br>
+```
+# Comment
+RUN echo 'we are running some # of cool things'
+```
+
+### FROM
+The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions. As such, a valid Dockerfile must start with a FROM instruction. The image can be any valid image – it is especially easy to start by pulling an image from the Public Repositories.<br>
+```
+FROM [--platform=<platform>] <image> [AS <name>]
+FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
+FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
+```
+
 ## Cheat Section
 Create and start a container
 ```
@@ -101,6 +119,16 @@ docker stop [OPTIONS] CONTAINER [CONTAINER...]
 Kill the container
 ```
 docker kill [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+Pause container
+```
+docker pause CONTAINER [CONTAINER...]
+```
+
+Unpause container
+```
+docker unpause CONTAINER [CONTAINER...]
 ```
 
 List all containers
@@ -156,6 +184,35 @@ Destroy images
 docker rmi [OPTIONS] IMAGE [IMAGE...]
 ```
 
+Display the deamon configuration
+```
+docker info [INFOS]
+```
+
+Display containers informations
+```
+docker stats [OPTIONS] [CONTAINER...]
+```
+
+Display the version of the docker
+```
+docker version [OPTIONS]
+```
+
+Display log of container
+```
+docker logs [OPTIONS] CONTAINER
+```
+|Name/Shorthand|Description|
+|-|-|
+|--follow , -f|Follow log output|
+|--tail, -n|Number of lines to show from the end of the logs|
+
+Display top command inside a container
+```
+docker top CONTAINER [ps OPTIONS]
+```
+
 ## Lexic
 |Name|Description|
 |-|-|
@@ -169,16 +226,23 @@ docker rmi [OPTIONS] IMAGE [IMAGE...]
 ### Docker
 - https://www.docker.com/resources/what-container/
 - https://docs.docker.com/engine/install/debian/
+- https://docs.docker.com/engine/reference/builder/
 - https://docs.docker.com/engine/reference/commandline/create/
 - https://docs.docker.com/engine/reference/commandline/exec/
 - https://docs.docker.com/engine/reference/commandline/images/
+- https://docs.docker.com/engine/reference/commandline/info/
 - https://docs.docker.com/engine/reference/commandline/inspect/
 - https://docs.docker.com/engine/reference/commandline/kill/
+- https://docs.docker.com/engine/reference/commandline/logs/
+- https://docs.docker.com/engine/reference/commandline/pause/
 - https://docs.docker.com/engine/reference/commandline/ps/
 - https://docs.docker.com/engine/reference/commandline/rm/
 - https://docs.docker.com/engine/reference/commandline/rmi/
 - https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/stats/
 - https://docs.docker.com/engine/reference/commandline/stop/
+- https://docs.docker.com/engine/reference/commandline/unpause/
+- https://docs.docker.com/engine/reference/commandline/version/
 
 ### Miscellaneous
 - https://en.wikipedia.org/wiki/Cgroups
