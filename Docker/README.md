@@ -75,6 +75,24 @@ Verify that the Docker Engine installation is successful by running the hello-wo
 sudo docker run hello-world
 ```
 
+### [Facultative] Get root access to your user
+Create a \'docker\' group
+```
+sudo groupadd docker
+```
+Add your user to the group
+```
+sudo usermod -aG docker $USER
+```
+Restart your session or execute the following command
+```
+newgrp docker
+```
+Test the root access
+```
+docker run hello-world
+```
+
 ## Dockerfile
 Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.<br>
 
@@ -92,6 +110,64 @@ FROM [--platform=<platform>] <image> [AS <name>]
 FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
 FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```
+
+## Docker Compose
+The Compose file is a YAML file defining version (DEPRECATED), services (REQUIRED), networks, volumes, configs and secrets. The default path for a Compose file is compose.yaml (preferred) or compose.yml in working directory. Compose implementations SHOULD also support docker-compose.yaml and docker-compose.yml for backward compatibility. If both files exist, Compose implementations MUST prefer canonical compose.yaml one.<br>
+
+### Usage
+```
+docker compose [-f <arg>...] [--profile <name>...] [options] [COMMAND] [ARGS...]
+docker compose -h|--help
+```
+***Options :wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|--file, -f FILE|Specify an alternate compose file (default: docker-compose.yml)|
+|--project-name, -p NAME|Specify an alternate project name (default: directory name)|
+|--profile NAME|Specify a profile to enable|
+|--verbose|Show more output|
+|--log-level LEVEL|DEPRECATED and not working from 2.0 - Set log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)|
+|--no-ansi|Do not print ANSI control characters|
+|--version, -v|Print version and exit|
+|--host, -H HOST|Daemon socket to connect to|
+|--tls|Use TLS; implied by --tlsverify|
+|--tlscacert CA_PATH|Trust certs signed only by this CA|
+|--tlscert CLIENT_CERT_PATH|Path to TLS certificate file|
+|--tlskey TLS_KEY_PATH|Path to TLS key file|
+|--tlsverify|Use TLS and verify the remote|
+|--skip-hostname-check|Don't check the daemon's hostname against the name specified in the client certificate|
+|--project-directory PATH|Specify an alternate working directory (default: the path of the Compose file)|
+--compatibility|If set, Compose will attempt to convert deploy keys in v3 files to their non-Swarm equivalent|
+
+***Commands:wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|build|Build or rebuild services|
+|bundle|Generate a Docker bundle from the Compose file|
+|config|Validate and view the Compose file|
+|create|Create services|
+|down|Stop and remove containers, networks, images, and volumes|
+|events|Receive real time events from containers|
+|exec|Execute a command in a running container|
+|help|Get help on a command|
+|images|List images|
+|kill|Kill containers|
+|logs|View output from containers|
+|pause|Pause services|
+|port|Print the public port for a port binding|
+|ps|List containers|
+|pull|Pull service images|
+|push|Push service images|
+|restart|Restart services|
+|rm|Remove stopped containers|
+|run|Run a one-off command|
+|scale|Set number of containers for a service|
+|start|Start services|
+|stop|Stop services|
+|top|Display the running processes|
+|unpause|Unpause services|
+|up|Create and start containers|
+|version|Show the Docker Compose version information|
 
 ## Cheat Section
 Create and start a container
@@ -223,9 +299,12 @@ docker top CONTAINER [ps OPTIONS]
 ## Sources :link:
 [Go to content](#content)
 
-### Docker
+### Docker Installation
 - https://www.docker.com/resources/what-container/
 - https://docs.docker.com/engine/install/debian/
+- https://docs.docker.com/engine/install/linux-postinstall/
+
+### Dockerfile
 - https://docs.docker.com/engine/reference/builder/
 - https://docs.docker.com/engine/reference/commandline/create/
 - https://docs.docker.com/engine/reference/commandline/exec/
@@ -244,8 +323,13 @@ docker top CONTAINER [ps OPTIONS]
 - https://docs.docker.com/engine/reference/commandline/unpause/
 - https://docs.docker.com/engine/reference/commandline/version/
 
+### Docker Compose
+- https://docs.docker.com/compose/compose-file/
+- https://docs.docker.com/compose/reference/
+
 ### Miscellaneous
 - https://en.wikipedia.org/wiki/Cgroups
 - https://en.wikipedia.org/wiki/Linux\_namespaces
 - https://en.wikipedia.org/wiki/Daemon\_\(computing\)
 - https://fr.wikipedia.org/wiki/Universally\_unique\_identifier
+- https://medium.com/freestoneinfotech/simplifying-docker-compose-operations-using-makefile-26d451456d63
