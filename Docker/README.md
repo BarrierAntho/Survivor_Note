@@ -111,6 +111,118 @@ FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
 FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```
 
+> :pencil2: Example:<br>
+```
+FROM debian:buster
+FROM nginx
+```
+
+### RUN
+The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.<br>
+Shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows:
+```
+RUN <command>
+```
+
+> :pencil2: Example:<br>
+```
+RUN /bin/bash -c 'source $HOME/.bashrc; \
+```
+
+Exec form:
+```
+RUN ["executable", "param1", "param2"]
+```
+
+> :pencil2: Example:<br>
+```
+RUN ["/bin/bash", "-c", "echo hello"]
+```
+
+## Docker Run Command Line
+The docker run command first creates a writeable container layer over the specified image, and then starts it using the specified command. That is, docker run is equivalent to the API /containers/create then /containers/(id)/start. A stopped container can be restarted with all its previous changes intact using docker start. See docker ps -a to view a list of all containers.<br>
+```
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+***Options :wrench:***
+|Name/Shorthand|Description|
+|-|-|
+|--attach , -a|Attach to STDIN, STDOUT or STDERR|
+|--detach , -d|Run container in background and print container ID|
+|--entrypoint|Overwrite the default ENTRYPOINT of the image|
+|--env , -e|Set environment variables|
+|--env-file|Read in a file of environment variables|
+|--expose|Expose a port or a range of ports|
+|--interactive , -i|Keep STDIN open even if not attached|
+|--expose|Expose a port or a range of ports|Set meta data on a container|
+|--name|Assign a name to the container|
+|--restart	no|Restart policy to apply when a container exits|
+|--rm|Automatically remove the container when it exits|
+|--stop-signal|Signal to stop a container|
+|--stop-timeout|Timeout (in seconds) to stop a container|
+|--tty , -t|Allocate a pseudo-TTY|
+|--user , -u|Username or UID (format: <name|uid>[:<group|gid>])|
+|--volume , -v|Bind mount a volume|
+|--volumes-from|Mount volumes from the specified container(s)|
+|--workdir , -w|Working directory inside the container|
+
+> :pencil2: Example:<br>
+> Assign name and allocate pseudo-TTY (--name, -it)
+```
+docker run --name test -it debian
+```
+> Set working directory (-w, --workdir)
+```
+docker  run -w /path/to/dir/ -i -t  ubuntu pwd
+```
+> Mount volume (-v, --read-only) 
+```
+docker run -v /doesnt/exist:/foo -w /foo -i -t ubuntu bash
+```
+> Publish or expose port (-p, --expose)
+```
+docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
+```
+> Set environment variables (-e, --env, --env-file)
+```
+docker run -e MYVAR1 --env MYVAR2=foo --env-file ./env.list ubuntu bash
+```
+> Connect a container to a network (--network)
+```
+docker network create my-net
+docker run -itd --network=my-net busybox
+```
+> Mount volumes from container (--volumes-from)
+```
+docker run --volumes-from 777f7dc92da7 --volumes-from ba8c0c54f0f2:ro -i -t ubuntu pwd
+```
+
+### Restart policies
+Use Docker’s --restart to specify a container’s restart policy. A restart policy controls whether the Docker daemon restarts a container after exit.<br>
+```
+docker run --restart=POLICY IMAGE [COMMAND] [ARG...]
+```
+
+***Policies :wrench:***
+|Policy|Description|
+|-|-|
+|no|Do not automatically restart the container when it exits. This is the default.|
+|on-failure[:max-retries]|Restart only if the container exits with a non-zero exit status. Optionally, limit the number of restart retries the Docker daemon attempts.|
+|unless-stopped|Restart the container unless it is explicitly stopped or Docker itself is stopped or restarted.|
+|always|Always restart the container regardless of the exit status. When you specify always, the Docker daemon will try to restart the container indefinitely. The container will also always start on daemon startup, regardless of the current state of the container.|
+
+> :pencil2: Example:<br>
+```
+docker run --restart=always redis
+```
+
+### Stop container with signal
+The --stop-signal flag sets the system call signal that will be sent to the container to exit. This signal can be a signal name in the format SIG<NAME>, for instance SIGKILL, or an unsigned number that matches a position in the kernel’s syscall table, for instance 9.<br>
+
+### Stop container with timeout
+The --stop-timeout flag sets the number of seconds to wait for the container to stop after sending the pre-defined (see --stop-signal) system call signal. If the container does not exit after the timeout elapses, it is forcibly killed with a SIGKILL signal.<br>
+If --stop-timeout is set to -1, no timeout is applied, and the daemon will wait indefinitely for the container to exit.<br>
+
 ## Docker Compose
 The Compose file is a YAML file defining version (DEPRECATED), services (REQUIRED), networks, volumes, configs and secrets. The default path for a Compose file is compose.yaml (preferred) or compose.yml in working directory. Compose implementations SHOULD also support docker-compose.yaml and docker-compose.yml for backward compatibility. If both files exist, Compose implementations MUST prefer canonical compose.yaml one.<br>
 
@@ -304,8 +416,39 @@ docker top CONTAINER [ps OPTIONS]
 - https://docs.docker.com/engine/install/debian/
 - https://docs.docker.com/engine/install/linux-postinstall/
 
+### Docker command line
+- https://docs.docker.com/engine/reference/commandline/create/
+- https://docs.docker.com/engine/reference/commandline/exec/
+- https://docs.docker.com/engine/reference/commandline/images/
+- https://docs.docker.com/engine/reference/commandline/info/
+- https://docs.docker.com/engine/reference/commandline/inspect/
+- https://docs.docker.com/engine/reference/commandline/kill/
+- https://docs.docker.com/engine/reference/commandline/logs/
+- https://docs.docker.com/engine/reference/commandline/pause/
+- https://docs.docker.com/engine/reference/commandline/ps/
+- https://docs.docker.com/engine/reference/commandline/rm/
+- https://docs.docker.com/engine/reference/commandline/rmi/
+- https://docs.docker.com/engine/reference/commandline/run/
+- https://docs.docker.com/engine/reference/commandline/stats/
+- https://docs.docker.com/engine/reference/commandline/stop/
+- https://docs.docker.com/engine/reference/commandline/unpause/
+- https://docs.docker.com/engine/reference/commandline/version/
+
 ### Dockerfile
 - https://docs.docker.com/engine/reference/builder/
+- https://docs.docker.com/engine/reference/builder/#from
+- https://docs.docker.com/engine/reference/builder/#run
+
+### Docker Compose
+- https://docs.docker.com/compose/compose-file/
+- https://docs.docker.com/compose/reference/
+
+### Miscellaneous
+- https://en.wikipedia.org/wiki/Cgroups
+- https://en.wikipedia.org/wiki/Linux\_namespaces
+- https://en.wikipedia.org/wiki/Daemon\_\(computing\)
+- https://fr.wikipedia.org/wiki/Universally\_unique\_identifier
+- https://medium.com/freestoneinfotech/simplifying-docker-compose-operations-using-makefile-26d451456d63
 - https://docs.docker.com/engine/reference/commandline/create/
 - https://docs.docker.com/engine/reference/commandline/exec/
 - https://docs.docker.com/engine/reference/commandline/images/
