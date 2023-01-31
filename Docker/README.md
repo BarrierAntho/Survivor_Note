@@ -112,10 +112,10 @@ FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```
 
 > :pencil2: Example:<br>
-```
-FROM debian:buster
-FROM nginx
-```
+> ```
+> FROM debian:buster
+> FROM nginx
+> ```
 
 ### RUN
 The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.<br>
@@ -123,21 +123,19 @@ Shell form, the command is run in a shell, which by default is /bin/sh -c on Lin
 ```
 RUN <command>
 ```
-
 > :pencil2: Example:<br>
-```
-RUN /bin/bash -c 'source $HOME/.bashrc; \
-```
+> ```
+> RUN /bin/bash -c 'source $HOME/.bashrc; \
+> ```
 
 Exec form:
 ```
 RUN ["executable", "param1", "param2"]
 ```
-
 > :pencil2: Example:<br>
-```
-RUN ["/bin/bash", "-c", "echo hello"]
-```
+> ```
+> RUN ["/bin/bash", "-c", "echo hello"]
+> ```
 
 ## Docker Run Command Line
 The docker run command first creates a writeable container layer over the specified image, and then starts it using the specified command. That is, docker run is equivalent to the API /containers/create then /containers/(id)/start. A stopped container can be restarted with all its previous changes intact using docker start. See docker ps -a to view a list of all containers.<br>
@@ -168,34 +166,34 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 > :pencil2: Example:<br>
 > Assign name and allocate pseudo-TTY (--name, -it)
-```
-docker run --name test -it debian
-```
+> ```
+> docker run --name test -it debian
+> ```
 > Set working directory (-w, --workdir)
-```
-docker  run -w /path/to/dir/ -i -t  ubuntu pwd
-```
+> ```
+> docker  run -w /path/to/dir/ -i -t  ubuntu pwd
+> ```
 > Mount volume (-v, --read-only) 
-```
-docker run -v /doesnt/exist:/foo -w /foo -i -t ubuntu bash
-```
+> ```
+> docker run -v /doesnt/exist:/foo -w /foo -i -t ubuntu bash
+> ```
 > Publish or expose port (-p, --expose)
-```
-docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
-```
+> ```
+> docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
+> ```
 > Set environment variables (-e, --env, --env-file)
-```
-docker run -e MYVAR1 --env MYVAR2=foo --env-file ./env.list ubuntu bash
-```
+> ```
+> docker run -e MYVAR1 --env MYVAR2=foo --env-file ./env.list ubuntu bash
+> ```
 > Connect a container to a network (--network)
-```
-docker network create my-net
-docker run -itd --network=my-net busybox
-```
+> ```
+> docker network create my-net
+> docker run -itd --network=my-net busybox
+> ```
 > Mount volumes from container (--volumes-from)
-```
-docker run --volumes-from 777f7dc92da7 --volumes-from ba8c0c54f0f2:ro -i -t ubuntu pwd
-```
+> ```
+> docker run --volumes-from 777f7dc92da7 --volumes-from ba8c0c54f0f2:ro -i -t ubuntu pwd
+> ```
 
 ### Restart policies
 Use Docker’s --restart to specify a container’s restart policy. A restart policy controls whether the Docker daemon restarts a container after exit.<br>
@@ -212,9 +210,9 @@ docker run --restart=POLICY IMAGE [COMMAND] [ARG...]
 |always|Always restart the container regardless of the exit status. When you specify always, the Docker daemon will try to restart the container indefinitely. The container will also always start on daemon startup, regardless of the current state of the container.|
 
 > :pencil2: Example:<br>
-```
-docker run --restart=always redis
-```
+> ```
+> docker run --restart=always redis
+> ```
 
 ### Stop container with signal
 The --stop-signal flag sets the system call signal that will be sent to the container to exit. This signal can be a signal name in the format SIG<NAME>, for instance SIGKILL, or an unsigned number that matches a position in the kernel’s syscall table, for instance 9.<br>
