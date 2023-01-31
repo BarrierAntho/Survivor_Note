@@ -2,12 +2,13 @@
 
 ## Content
 - [Historic :clock7:](#historic-clock7)
-- [General](#general-books)
-- [Comparison Containers vs VirtualMachine](#comparison-containers-vs-virtualmachine-repeat)
-- [Installation On Debian](#installation-on-debian)
+- [General :whale:](#general-whale)
+- [Comparison Containers vs VirtualMachine :repeat:](#comparison-containers-vs-virtualmachine-repeat)
+- [Installation On Debian :computer:](#installation-on-debian-computer)
 - [Dockerfile](#dockerfile)
-- [Docker Run Command Line](#docker-run-command-line)
+- [Docker Run Command Line](#docker-run-command-line)	
 - [Docker Compose](#docker-compose)
+- [Cheat Section :trollface:](#cheat-section-trollface)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
@@ -16,7 +17,7 @@
 |:-|:-|
 |2023-01-20|Init|
 
-## General :books:
+## General :whale:
 [Go to content](#content)
 
 Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.<br>
@@ -48,7 +49,7 @@ Virtual machines (VMs) are an abstraction of physical hardware turning one serve
 
 <img src="resources/images/Docker_Comparison_Containers-VM_002.png" title="Docker - Comparison Containers vs VM 002" width="400" height="400" />
 
-## Installation On Debian
+## Installation On Debian :computer:
 [Go to content](#content)
 
 ### Uninstall Docker Engine
@@ -285,7 +286,7 @@ docker compose -h|--help
 |up|Create and start containers|
 |version|Show the Docker Compose version information|
 
-## Cheat Section
+## Cheat Section :trollface:
 [Go to content](#content)
 
 Create and start a container
