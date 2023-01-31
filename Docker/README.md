@@ -2,8 +2,12 @@
 
 ## Content
 - [Historic :clock7:](#historic-clock7)
-- [General](#general)
-- [Comparison Containers vs VirtualMachine](#comparison-containers-vs-virtualmachine)
+- [General](#general-books)
+- [Comparison Containers vs VirtualMachine](#comparison-containers-vs-virtualmachine-repeat)
+- [Installation On Debian](#installation-on-debian)
+- [Dockerfile](#dockerfile)
+- [Docker Run Command Line](#docker-run-command-line)
+- [Docker Compose](#docker-compose)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
@@ -12,7 +16,7 @@
 |:-|:-|
 |2023-01-20|Init|
 
-## General
+## General :books:
 [Go to content](#content)
 
 Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.<br>
@@ -29,7 +33,7 @@ It leveraged existing computing concepts around containers and specifically in t
 > cgroups (abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
 > Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources. The feature works by having the same namespace for a set of resources and processes, but those namespaces refer to distinct resources. Resources may exist in multiple spaces. Examples of such resources are process IDs, host-names, user IDs, file names, and some names associated with network access, and Inter-process communication.<br>
 
-## Comparison Containers vs VirtualMachine
+## Comparison Containers vs VirtualMachine :repeat:
 [Go to content](#content)
 
 Containers and virtual machines have similar resource isolation and allocation benefits, but function differently because containers virtualize the operating system instead of hardware. Containers are more portable and efficient.<br>
@@ -98,10 +102,6 @@ Docker can build images automatically by reading the instructions from a Dockerf
 
 ### Comment
 Docker treats lines that begin with # as a comment, unless the line is a valid parser directive. A # marker anywhere else in a line is treated as an argument.<br>
-```
-# Comment
-RUN echo 'we are running some # of cool things'
-```
 
 ### FROM
 The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions. As such, a valid Dockerfile must start with a FROM instruction. The image can be any valid image – it is especially easy to start by pulling an image from the Public Repositories.<br>
