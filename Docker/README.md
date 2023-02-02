@@ -103,6 +103,30 @@ docker run hello-world
 
 Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.<br>
 
+### Good practice
+Written sequence
+1. FROM
+2. MAINTAINER
+3. ARG
+4. ENV, LABEL
+5. VOLUME
+6. RUN, COPY, WORKDIR
+7. EXPOSE
+8. USER
+9. ONBUILD
+10. CMD,ENTRYPOINT
+11. STOPSIGNAL ???
+12. HEALTHCHECK ???
+
+> :pushpin: For 'CMD/ENTRYPOINT', it is recommended to use exec synthax CMD ["xxx", "-y"]
+
+Each instruction creates one layer:
+- FROM creates a layer from the ubuntu:18.04 Docker image.
+- COPY adds files from your Docker client’s current directory.
+- RUN builds your application with make.
+- CMD specifies what command to run within the container.
+Then it is recommended to use "\\" to create layer as minimum as possible.
+
 ### Comment
 Docker treats lines that begin with # as a comment, unless the line is a valid parser directive. A # marker anywhere else in a line is treated as an argument.<br>
 
@@ -115,10 +139,25 @@ FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]
 ```
 
 > :pencil2: Example:<br>
-> ```
+> ````
 > FROM debian:buster
 > FROM nginx
-> ```
+> ````
+
+### MAINTAINER
+The MAINTAINER instruction sets the Author field of the generated images. The LABEL instruction is a much more flexible version of this and you should use it instead, as it enables setting any metadata you require, and can be viewed easily, for example with docker inspect.<br>
+```
+MAINTAINER abarrier
+```
+
+### ARG
+The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command using the --build-arg <varname>=<value> flag. If a user specifies a build argument that was not defined in the Dockerfile, the build outputs a warning.<br>
+```
+ARG <name>[=<default value>]
+```
+
+> :warning: It is not recommended to use build-time variables for passing secrets like GitHub keys, user credentials etc. Build-time variable values are visible to any user of the image with the docker history command.<br>
+> Refer to the RUN --mount=type=secret section to learn about secure ways to use secrets when building images.
 
 ### RUN
 The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.<br>
@@ -127,18 +166,31 @@ Shell form, the command is run in a shell, which by default is /bin/sh -c on Lin
 RUN <command>
 ```
 > :pencil2: Example:<br>
-> ```
+> ````
 > RUN /bin/bash -c 'source $HOME/.bashrc; \
-> ```
+> ````
 
 Exec form:
 ```
 RUN ["executable", "param1", "param2"]
 ```
 > :pencil2: Example:<br>
-> ```
+> ````
 > RUN ["/bin/bash", "-c", "echo hello"]
-> ```
+> ````
+
+### STOPSIGNAL
+The STOPSIGNAL instruction sets the system call signal that will be sent to the container to exit. This signal can be a signal name in the format SIG<NAME>, for instance SIGKILL, or an unsigned number that matches a position in the kernel’s syscall table, for instance 9. The default is SIGTERM if not defined.<br>
+```
+STOPSIGNAL signal
+```
+
+### HEALTHCHECK
+The HEALTHCHECK instruction tells Docker how to test a container to check that it is still working. This can detect cases such as a web server that is stuck in an infinite loop and unable to handle new connections, even though the server process is still running.<br>
+```
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost/ || exit 1
+```
 
 ## Docker Run Command Line
 [Go to content](#content)
@@ -442,6 +494,7 @@ docker top CONTAINER [ps OPTIONS]
 - https://docs.docker.com/engine/reference/commandline/version/
 
 ### Dockerfile
+- https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 - https://docs.docker.com/engine/reference/builder/
 - https://docs.docker.com/engine/reference/builder/#from
 - https://docs.docker.com/engine/reference/builder/#run
