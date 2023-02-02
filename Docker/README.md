@@ -536,3 +536,9 @@ docker top CONTAINER [ps OPTIONS]
 - https://en.wikipedia.org/wiki/Daemon\_\(computing\)
 - https://fr.wikipedia.org/wiki/Universally\_unique\_identifier
 - https://medium.com/freestoneinfotech/simplifying-docker-compose-operations-using-makefile-26d451456d63
+
+### NGinx
+- https://nginx.org/en/docs/beginners_guide.html
+- https://nginx.org/en/docs/http/ngx_http_core_module.html#server
+- https://nginx.org/en/docs/http/ngx_http_core_module.html#server
+- https://nginx.org/en/docs/http/configuring_https_servers.html
