@@ -1,8 +1,8 @@
-# Docker
+# Docker :whale:
 
 ## Content
 - [Historic :clock7:](#historic-clock7)
-- [General :whale:](#general-whale)
+- [General](#general)
 - [Comparison Containers vs VirtualMachine :repeat:](#comparison-containers-vs-virtualmachine-repeat)
 - [Installation On Debian :computer:](#installation-on-debian-computer)
 - [Dockerfile](#dockerfile)
@@ -18,7 +18,7 @@
 |:-|:-|
 |2023-01-20|Init|
 
-## General :whale:
+## General
 [Go to content](#content)
 
 Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.<br>
