@@ -3,7 +3,7 @@
 ## Content
 - [Historic :clock7:](#historic-clock7)
 - [General](#general)
-- [Installation on Linux :computer:](#installation-on-linux-computer)
+- [Installation :computer:](#installation-computer)
 - [Cheat Section :trollface:](#cheat-section-trollface)
 - [Lexic :books:](#lexic-books)
 - [Sources :link:](#sources-link)
@@ -17,8 +17,19 @@
 ## General
 [Go to content](#content)
 
-## Installation On Linux :computer:
+## Installation :computer:
 [Go to content](#content)
+
+Update package list
+```
+sudo apt update
+```
+
+### Installing MariaDB Server
+To Install MariaDB Server, execute the following command:
+```
+sudo apt install MariaDB-server
+```
 
 ## Cheat Section :trollface:
 [Go to content](#content)
@@ -31,4 +42,16 @@
 
 ## Sources :link:
 [Go to content](#content)
+
+### Installation
+- https://mariadb.com/kb/en/about-the-mariadb-rpm-files/
+- https://mariadb.com/kb/en/yum/
+- https://mariadb.com/kb/en/starting-and-stopping-mariadb-automatically/
+
+### Configuration
+- https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
+
+### Usage
+- https://mariadb.com/kb/en/mysqlserver/
+- https://mariadb.com/kb/en/mysqld_safe/
 
