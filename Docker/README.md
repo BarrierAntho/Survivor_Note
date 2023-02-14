@@ -205,6 +205,71 @@ RUN ["executable", "param1", "param2"]
 > RUN ["/bin/bash", "-c", "echo hello"]
 > ````
 
+### EXPOSE
+The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.<br>
+The EXPOSE instruction does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published. To actually publish the port when running the container, use the -p flag on docker run to publish and map one or more ports, or the -P flag to publish all exposed ports and map them to high-order ports.<br>
+```
+EXPOSE <port> [<port>/<protocol>...]
+```
+> :pencil2: Example:<br>
+> ````
+> EXPOSE 80/tcp
+> EXPOSE 80/udp
+> ````
+
+Regardless of the EXPOSE settings, you can override them at runtime by using the -p flag.<br>
+```
+docker run -p 80:80/tcp -p 80:80/udp ...
+```
+
+### CMD / ENTRYPOINT
+
+#### CMD
+The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.<br>
+If CMD is used to provide default arguments for the ENTRYPOINT instruction, both the CMD and ENTRYPOINT instructions should be specified with the JSON array format.<br>
+
+Shell form<br>
+```
+CMD command param1 param2
+```
+Shell form<br>
+```
+CMD ["executable","param1","param2"]
+```
+Default parameters for ENTRYPOINT
+```
+CMD ["param1","param2"]
+```
+
+> :warning: Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen. For example, CMD [ "echo", "$HOME" ] will not do variable substitution on $HOME. If you want shell processing then either use the shell form or execute a shell directly, for example: CMD [ "sh", "-c", "echo $HOME" ]. When using the exec form and executing a shell directly, as in the case for the shell form, it is the shell that is doing the environment variable expansion, not docker.<br>
+
+#### ENTRYPOINT
+An ENTRYPOINT allows you to configure a container that will run as an executable.<br>
+Shell form<br>
+```
+ENTRYPOINT command param1 param2
+```
+> :warning: You can specify a plain string for the ENTRYPOINT and it will execute in /bin/sh -c. This form will use shell processing to substitute shell environment variables, and will ignore any CMD or docker run command line arguments. To ensure that docker stop will signal any long running ENTRYPOINT executable correctly, you need to remember to start it with exec.<br>
+> :pencil2: Example:<br>
+> ````
+> FROM ubuntu
+> ENTRYPOINT exec top -b
+> ````
+
+Exec form<br>
+```
+ENTRYPOINT ["executable", "param1", "param2"]
+```
+
+> :warning: Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen. For example, ENTRYPOINT [ "echo", "$HOME" ] will not do variable substitution on $HOME. If you want shell processing then either use the shell form or execute a shell directly, for example: ENTRYPOINT [ "sh", "-c", "echo $HOME" ]. When using the exec form and executing a shell directly, as in the case for the shell form, it is the shell that is doing the environment variable expansion, not docker.<br>
+
+#### Understand how CMD and ENTRYPOINT interact
+Both CMD and ENTRYPOINT instructions define what command gets executed when running a container. There are few rules that describe their co-operation.<br>
+1. Dockerfile should specify at least one of CMD or ENTRYPOINT commands.
+2. ENTRYPOINT should be defined when using the container as an executable.
+3. CMD should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
+4. CMD will be overridden when running the container with alternative arguments.
+
 ### STOPSIGNAL
 The STOPSIGNAL instruction sets the system call signal that will be sent to the container to exit. This signal can be a signal name in the format SIG<NAME>, for instance SIGKILL, or an unsigned number that matches a position in the kernel’s syscall table, for instance 9. The default is SIGTERM if not defined.<br>
 ```
