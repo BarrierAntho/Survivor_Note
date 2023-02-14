@@ -9,6 +9,7 @@
 - [Docker Run Command Line](#docker-run-command-line)	
 - [Docker Compose](#docker-compose)
 - [Cheat Section :trollface:](#cheat-section-trollface)
+- [Lexic :books:](#lexic-books)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
@@ -551,7 +552,7 @@ Display top command inside a container
 docker top CONTAINER [ps OPTIONS]
 ```
 
-## Lexic
+## Lexic :books:
 |Name|Description|
 |-|-|
 |CaaS|Container as a Service|
