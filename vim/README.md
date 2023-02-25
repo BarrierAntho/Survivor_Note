@@ -26,8 +26,35 @@ Close the active selection: `CTRL + w` followed by the letter `q`
 
 ## vimrc
 Interpreet .tpp file as .cpp file
-```au BufNewFile,BufRead *.tpp set filetype=cpp```
+```
+au BufNewFile,BufRead *.tpp set filetype=cpp
+```
 
+## useful commands
+Jump to tags
+```
+CTRL + ]
+```
+Go back
+```
+CTRL + O
+```
+Move to the end of
+```
+[#
+[{
+[[
+[(
+```
+
+## tags
+Chapter 29.1 from vimtutor
+Generate tags file in a work directory
+```
+ctags -Ra .
+```
+
+## 
 
 ## Sources :link:
 [Go to content](#content)
