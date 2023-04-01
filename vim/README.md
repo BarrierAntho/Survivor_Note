@@ -61,3 +61,6 @@ ctags -Ra .
 
 ### Window management
 - https://www.tecmint.com/split-vim-screen/
+
+### NeoVim COnfiguration
+- https://youtu.be/w7i4amO_zaE
