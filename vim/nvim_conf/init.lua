@@ -9,3 +9,7 @@ require("theprimeagen")
 -- https://github.com/mbbill/undotree
 -- https://github.com/tpope/vim-fugitive
 -- https://github.com/VonHeikemen/lsp-zero.nvim
+-- https://github.com/folke/trouble.nvim
+--
+-- RESSOURCES "USELESS BUT FUN"
+-- https://github.com/Eandrju/cellular-automaton.nvim
