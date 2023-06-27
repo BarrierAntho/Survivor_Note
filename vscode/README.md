@@ -23,3 +23,5 @@ Select entirely a word + `CTRL + D` ==> Select every words in the entire page
 ## Sources :link:
 
 [Go to content](#content)
+
+- https://code.visualstudio.com/docs/getstarted/tips-and-tricks

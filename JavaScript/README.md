@@ -1,32 +1,55 @@
 # JavaScript
 
 ## Content
+
 - [Historic :clock7:](#historic-clock7)
 - [Sources :link:](#sources-link)
 
 ## Historic :clock7:
+
 [Go to content](#content)
 |Date _YYYY-MM-DD_|Description|
 |:-|:-|
 |2023-06-26|Init|
 
-## Sources :link:
-[Go to content](#content)
-
-## Basic
 ## Strict mode
+
+[Go to content](#content)
 Use strict `use strict` at the beginning of the code to avoid bugs
-- forbid some things
+
+- forbidd some things
 - create visible errors
 
-### Variable declaration
-The variable declaration does not contain the type but the value does.
+## Variable
+
+[Go to content](#content)
+
+### Overview
+
+<img src="ressources/js_udemy_data_types.png" title="JavaScript - Data Types" width="400"/><br>
+
+Primitive data types:
+
+- Number
+- String
+- Boolean
+- Undefined (empty value)
+- Null (empty value)
+- Symbol (ES2015)
+- BigInt (ES2020)
+
+### Declaration
+
+_:warning: The variable declaration does not contain the type but the value does. :warning:_
+
 ```JavaScript
 var a; // CREATE VARIABLE (OLD CALL)
 let b; // CREATE VARIABLE
 const c; // CREATE CONSTANTE VARIABLE
 ```
+
 > _:pencil2: Example: _<br>
+>
 > ```JavaScript
 > const a; // UNDEFINED TYPE
 > a = "a"; // STRING TYPE
@@ -36,41 +59,79 @@ const c; // CREATE CONSTANTE VARIABLE
 
 ---
 
-#### comparison operator `===` vs `==`
+`type of ` returns the data type
+
+## Type conversion and coercion
+
+```JavaScript
+// TYPE CONVERSION
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear) + 18);
+
+console.log(Number('Jonas'));
+console.log(typeof NaN);
+
+console.log(String(23), 23);
+
+// TYPE COERCION
+console.log('I am ' + 23 + ' years old'); // RETURN STRING 'I am 23 years old'
+console.log('23' - '10' - 3); // RETURN NUMBER 10
+console.log('23' / '2'); // RETURN NUMBER 11.5
+
+let n = '1' + 1; // RETURN STRING '11'
+n = n - 1;
+console.log(n);
+
+```
+
+## comparison operator `===` vs `==`
+
 `===` strict mode: Variable must have the same type and value to get `true`
 `==` coersion mode: Variable are converted to the same type and value must be the same to get `true`
 
 > _:pencil2: Example:_<br>
+>
 > ```JavaScript
 > const a = "1";
 > const b = "1";
 > const c = 1;
-> 
-> /* STRICT MODE */
+>
+> // STRICT MODE
 > a === b; // RETURN true
-> a === c; // RETURN true
-> 
-> /* COERSION MODE */
-> a == b;
-> a == c;
+> a === c; // RETURN false
+>
+> // COERSION MODE
+> a == b; // RETURN true
+> a == c; // RETURN true
 > ```
 
-### Functions
+## Functions
+
+### Function declaration
+
 ```JavaScript
-// FUNCTION DECLARATION
 function funcName(a1, a2) { // parameters a1 et a2
     // FUNCTION PROCESS
     return something;
 }
 funcName(); // CALLING FUNCTION
+```
 
-// FUNCTION EXPRESSION
+### Function expression
+
+_:warning: It is not possible to call a function expression before its declaration :warning:_
+
+```JavaScript
 const value = function (a1) {
     return something;
 }
 const a = value('test'); // CALLING FUNCTION
+```
 
-// ARROW FUNCTIONS
+### Arrow expression
+
+```JavaScript
 // ONLY ONE ARGUMENT AND ONE RETURN
 const a = value => something;
 
@@ -90,9 +151,9 @@ const a = (value1, value2) => {
 }
 console.log(value(42));
 ```
-:warning: It is not possible to call a function expression before its declaration<br>
 
 ## Array
+
 ```JavaScript
 const myArray = [1, 2, 3];
 console.log(myArray);
@@ -118,7 +179,9 @@ myArray.includes(1); // RETURN TRUE IF FOUND ELEMENT, OTHERWISE FALSE IS RETURNE
 ```
 
 ### Objects
+
 Structure data
+
 ```JavaScript
 const myObject = {
     firstName: 'a',
@@ -144,5 +207,45 @@ if (myObject[a]) {
 myObject.location = "France"; // ADD NEW FIELD
 ```
 
-## Misc
+### Debugging
+
+```JavaScript
+console.log();
+console.warn();
+console.err();
+console.tabe(object);
+
+```
+
+In Developper Tools WebBrowser, tab "Sources", it is possible to add breakpoint in the script.
+
+## DOM
+
+`Document Object Model`: Structured representation of html documents. Allows JavaScript to acess HTML elements and styles to manipulate them.
+Connexion point between HTML document and JavaScript script.
+
+It is part of WEB APIs (Application Programming Interface).
+
+## Class
+
+`contains`: check if the class value exists in the object.
+`toggle`: set searched class value if not exists or unset searched class value if exists.
+
+## Miscellaneous
+
 Possible to write conditional ternary in `console.log`
+
+Install node js "live-server"
+`sudo npm install live-server -g`
+
+## Sources :link:
+
+[Go to content](#content)
+
+### Basics
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+```
+
+```
