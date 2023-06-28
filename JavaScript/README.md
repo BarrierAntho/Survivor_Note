@@ -8,13 +8,21 @@
 ## Historic :clock7:
 
 [Go to content](#content)
-|Date _YYYY-MM-DD_|Description|
-|:-|:-|
-|2023-06-26|Init|
+
+| Date _YYYY-MM-DD_ | Description |
+| :---------------- | :---------- |
+| 2023-06-26        | Init        |
+
+## Definition
+
+[Go to content](#content)
+
+<img src="./ressources/js_udemy_definition.png" title="JavaScript - Definition">
 
 ## Strict mode
 
 [Go to content](#content)
+
 Use strict `use strict` at the beginning of the code to avoid bugs
 
 - forbidd some things
@@ -43,9 +51,9 @@ Primitive data types:
 _:warning: The variable declaration does not contain the type but the value does. :warning:_
 
 ```JavaScript
-var a; // CREATE VARIABLE (OLD CALL)
-let b; // CREATE VARIABLE
-const c; // CREATE CONSTANTE VARIABLE
+var a; // CREATE VARIABLE. SCOPE CHAINE OUTSIDE OF BLOCK SCOPE. CREATE A PROPERTY IN THE GLOBAL 'window' OF THE WEB BROWSER
+let b; // CREATE VARIABLE. SCOPE CHAINE EXCLUSIVELY INSIDE OF BLOCK SCOPE
+const c; // CREATE CONSTANTE.  SCOPE CHAINE EXCLUSIVELY INSIDE OF BLOCK SCOPE
 ```
 
 > _:pencil2: Example: _<br>
@@ -106,6 +114,80 @@ console.log(n);
 > a == c; // RETURN true
 > ```
 
+## Boolean operator && and ||
+
+Use:
+
+- Use any data type
+- Return any data type
+- Short-circuiting
+
+```JavaScript
+/* OR */
+console.log(3 || 'Antho'); // RETURN 3
+console.log('' || 'Antho'); // RETURN 'Antho'
+console.log(true || 0); // RETURN true
+console.log(undefined || null); // RETURN null
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // RETURN 'Hello'
+
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1); // RETURN 10
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2); // RETURN 10
+
+/* AND */
+console.log(0 && 'Antho'); // RETURN 0
+console.log(7 && 'Antho'); // RETURN 7
+
+console.log('Hello' && 23 && null && 'Antho'); // RETURN null
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('toto');
+}
+restaurant.orderPizza && restaurant.orderPizza('toto');
+```
+
+## NULLISH COALESCING OPERATOR
+
+```JavaScript
+// NULLISH: null AND UNDEFINED (NOT 0 or '')
+restaurant.numGuests = 0;
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+```
+
+## Logical Assignment Operators
+
+```JavaScript
+const rest1 = {
+  name: 'Capri',
+  // numGuest: 20,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'La Pizzzza',
+  owner: 'Antho',
+};
+
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYM>';
+// rest2.owner = rest2.owner && '<ANONYM>';
+rest1.owner &&= '<ANONYM>';
+rest2.owner &&= '<ANONYM>';
+
+console.log(rest1);
+console.log(rest2);
+
+```
+
 ## Functions
 
 ### Function declaration
@@ -130,6 +212,8 @@ const a = value('test'); // CALLING FUNCTION
 ```
 
 ### Arrow expression
+
+Arrow expression function inherits of `this` from its parent call.
 
 ```JavaScript
 // ONLY ONE ARGUMENT AND ONE RETURN
@@ -231,12 +315,256 @@ It is part of WEB APIs (Application Programming Interface).
 `contains`: check if the class value exists in the object.
 `toggle`: set searched class value if not exists or unset searched class value if exists.
 
+## Arguments keyword
+
+:warning: Only available for function declaration and function expression :warning:
+
+```JavaScript
+// arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12); // PRINT EVERY ARGUMENTS
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8); // ERROR OF REFERENCE
+```
+
+## Array
+
+Destrucring Array
+
+```JavaScript
+const restaurant = {
+    name: 'Classico',
+    location: 'Angelo, Firenze, Italy',
+}
+// BORING DECLARATION/INITIALISATION
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+// DESTRUCRING ARRAY
+const [x, y, z] = arr;
+console.log(x, y, z); // RETURN 2, 3, 4
+console.log(arr) // RETURN 2, 3, 4
+
+const [first, , second] = restaurant.location; // WILL SKIP THE SECOND OBJECT OF location
+console.log(first, second); //RETURN Angelo, Italy
+
+// SWITCHING VARIABLES
+let [main, , secondary] = restaurant.location;
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
+//DEFAULT VALUE
+const [p = 1, q = 2, r = 3] = [8];
+console.log(p, q, r); // RETURN p=8, q=2, r=3
+
+```
+
+### Destruring Objects
+
+```JavaScript
+const restaurant = {
+    name: 'Classico',
+    location: 'Angelo, Firenze, Italy',
+}
+// CREATE VARIABLE
+const {name, location} = restaurant;
+
+// CREATE VARIABLE WITH NEW NAME
+const {name: restaurantName, location: places} = restaurant;
+console.log(restaurantName, places);
+
+// MUTATING VARIABLES
+let a = 111;
+let b = 999;
+const obj = {
+    a: 23,
+    b: 7,
+    c: 14,
+}
+// {a, b} = obj; // ERROR
+({a, b} = obj); // WORKAROUND
+```
+
+## SPREAD OPERATORS
+
+Spread operators `...array` is used to unpack an array.
+The rest pattern is placed on the `right` of the `=` operator.
+
+```JavaScript
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(..arr); // EQUAL TO arr[0], arr[1], arr[2]
+
+const newMenu = [...restaurant.mainMenu, 'Knacki']; // EXTRACT EVERY OBJECT FROM THE ARRAY AND ADD A NEW ONE
+console.log(newMenu);
+
+const mainMenuCopy = [...restaurant.mainMenu]; // SHALLOW COPY
+
+// JOIN 2 ARRAYS
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+const str = 'Antho';
+const letters = [...str, ' ', 'S.'];
+console.log(letters); // ['A', 'n', 't', 'h', 'o', ' ', 'S.']
+
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt("Let's make pasta! Ingredient 2?"),
+  prompt("Let's make pasta! Ingredient 3?"),
+];
+console.log(ingredients);
+
+// restaurant.orderPata(ingredients[0], ingredients[1, ingredients[2]]); // OLD WAY
+restaurant.orderPata(...ingredients);
+
+// COPY
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Test';
+console.log(restaurant, restaurantCopy);
+```
+
+## REST PATTERN AND PARAMETTERS
+
+Rest pattern `...elements` is to pack elements into an array
+The rest pattern is placed on the `left` of the `=` operator.
+The reset pattern must be the last element.
+
+```JavaScript
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+// REST PARAMETERS
+const add = function (...numbers) {
+  console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+
+const x = [23, 5, 7];
+add(...x); // DESTRURING ARRAY BUT RESTRUCURING IN FUNCTION
+```
+
 ## Miscellaneous
 
 Possible to write conditional ternary in `console.log`
 
 Install node js "live-server"
 `sudo npm install live-server -g`
+
+Use `self` variable name in an object to ensure the correct usage of internal properties/methods
+
+```JavaScript
+const antho = {
+    firstName = 'Antho',
+    year: 2023,
+    calcAge: function () {
+        console.log(9999 - this-year);
+
+    // Solution 1
+    const self = this; // self or that
+    const isMillenial = function () {
+        console.log(self);
+        console.log(self.year >= 1981 && self.year <= 1996);
+    };
+
+    // Solution 2
+    const isMillenial = () => {
+        console.log(this);
+        console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+    }
+}
+```
+
+:warning: Primitive Type Vs Reference Type :warning:
+`primitive type` are stored into `call stack`
+`reference type` are stored into heap
+
+Declaration of new object by copying existing one will create a new object but with the same address.
+
+```JavaScript
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+friend.age = 27;
+console.log('Friend:', friend); // RETURN 27
+console.log('Me', me); // RETURN 27
+```
+
+use `Object.assign({}, myOvject)` to do a `shallow copy` (copy properties on the first level).
+:warning: It will not create a copy of object properties :warning:
+
+```JavaScript
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage: ', marriedJessica);
+// marriedJessica = {};
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica2);
+console.log('After marriage: ', jessicaCopy);
+*/
+```
 
 ## Sources :link:
 
@@ -245,7 +573,3 @@ Install node js "live-server"
 ### Basics
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
-
-```
-
-```
