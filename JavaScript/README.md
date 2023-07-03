@@ -469,6 +469,140 @@ const x = [23, 5, 7];
 add(...x); // DESTRURING ARRAY BUT RESTRUCURING IN FUNCTION
 ```
 
+## OPTIONAL CHAINING
+```JavaScript
+if (resstaurant.openingHours && restaurant.openingHours.mon)
+		console.log(resutaurant.openinHours.mon.open);
+
+// OPTIONAL CHAINING
+console.log(restaurant.openingHours.mon?.open);
+```
+
+## LOOPING OBJECTS
+```JavaScript
+for (const day of Object.keys(opengHours)) {
+		console.log(day);
+}
+
+const values = Object.values(openingHours);
+console.log(values);
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, {open, close}] of entries) {
+		console.log(`On ${key} we open at ${open} and close at ${close}`);
+```
+
+## SETS
+Collection of unique value, only string
+No index
+```JavaScript
+const orderSet = new Set[['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']];
+console.log(orderSet); // RETURN: Pasta, Pizza, Risotto
+
+console.log(new Set('Antho')); // RETURN A, n, t, h, o
+
+console.log(orderSet.Size); // RETURN 3
+console.log(orderSet.has('Bread')); // RETURN false
+orderSet.add('Test');
+orderSet.add('Test');
+console.log(orderSet); // RETURN : Pasta, Pizza, Risotto, Test
+
+orderSet.delete('Test');
+orderSet.clear(); // CLEAR WHOLE COLLECTION
+
+```
+
+## MAPS
+More useful than `sets`
+Data structure, type can be anytype
+
+set method return the collection
+```JavaScript
+const rest = new Map();
+rest.set('name, 'Classico Itiliano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal');
+
+rest
+		.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+		.set('open', 11)
+		.set('close;, 23)
+		.set(true, 'We are open :D')
+		.set(false, 'We are closed :(');
+
+console.log(rest.get('name')); // RETURN Classico Italian
+console.log(rest.get(true)); // RETURN We are open :D
+console.log(rest.get(1)); // RETURN Firenze, Italy
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')))
+
+consoloe.log(rest.has('categories'); // RETURN true
+rest.delete(2); // DELETE Lisbon, Portugal
+
+console.log(rest.size); // RETURN 7
+
+rest.clear;
+
+rest.set([1, 2], 'Test');
+console.log(rest.get([1, 2])); RETURN undefined
+
+const arr = [1, 2];
+console.log(rest.get(arr)); // RETURN Test
+
+rest.set(document.querySelector('h1'), 'Heading');
+
+// POPULATE MAP
+const question = new Map([
+		['question', 'what is the best programming language ?'],
+		[1, 'C'],
+		[2, 'Java'],
+		[3, 'JavaScript'],
+		['correct', 3],
+		[true, 'Correct'],
+		[false, 'Try again'],
+]);
+console.log(question);
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = Map(Object.entries(openingHours));
+
+for (const [key, value] of question) {
+		if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+};
+const answer = Number(prompt('Your answer'));
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer)));
+
+// Convert map to array
+console.log([...question]);
+```
+
+## STRING MANIPULATION
+```JavaScript
+const a = "My Name Is Antho";
+console.log(a.indexOf('N'); // RETURN 3
+console.log(lastIndexOf('n'); // RETURN 12
+console.log(a.slice(3); // RETURN "Name Is Antho"
+console.log(a.slice(3, 7); // RETURN "Name"
+console.log(a.slice(-2); // RETURN "ho"
+console.log(a.toLowerCase());
+console.log(a.toUpperCase());
+console.log(a.trim());
+console.log("My Name Is Antho Antho".replaceAll("Antho", "Toto"));
+
+console.log(a.replace(/name/g, 'nickname'));
+console.log(a.includes("Antho")); // RETURN true
+console.log(a.startsWith("My")); // RETURN true
+console.log(a.split(' ')); // RETURN array
+console.log(a.padStart(22, '+')); // RETURN ++++++My Name Is Antho
+console.log(a.repeat(2)); // RETURN 'My Name Is AnthoMy Name Is Antho'
+```
+
 ## Miscellaneous
 
 Possible to write conditional ternary in `console.log`
