@@ -809,6 +809,16 @@ console.log('After marriage: ', jessicaCopy);
 */
 ```
 
+## NestJs
+(https://stackoverflow.com/questions/63312642/how-to-install-node-tar-xz-file-in-linux)
+```
+sudo apt install nodejs -y
+
+sudo npm i -g n
+
+sudo n latest
+```
+
 ## Sources :link:
 
 [Go to content](#content)
